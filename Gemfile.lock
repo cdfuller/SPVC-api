@@ -24,6 +24,11 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.4)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi (= 0.1.1.beta6)
     activejob (5.0.2)
       activesupport (= 5.0.2)
       globalid (>= 0.3.6)
@@ -39,8 +44,11 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    bcrypt (3.1.11)
     builder (3.2.3)
     byebug (9.0.6)
+    case_transform (0.2)
+      activesupport
     choice (0.2.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
@@ -57,6 +65,11 @@ GEM
       activesupport (>= 4.1.0)
     hashie (3.5.5)
     i18n (0.8.1)
+    jsonapi (0.1.1.beta6)
+      jsonapi-parser (= 0.1.1.beta3)
+      jsonapi-renderer (= 0.1.1.beta1)
+    jsonapi-parser (0.1.1.beta3)
+    jsonapi-renderer (0.1.1.beta1)
     jwt (1.5.6)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -147,6 +160,7 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (~> 3.2, >= 3.2.1)
+    simple_command (0.0.9)
     slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -172,8 +186,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
+  bcrypt (~> 3.1.7)
   byebug
   dotenv-rails
+  jwt
   listen (~> 3.0.5)
   pg (~> 0.18)
   pry-rails
@@ -182,6 +199,7 @@ DEPENDENCIES
   rails-erd
   rspotify
   sidekiq
+  simple_command
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
