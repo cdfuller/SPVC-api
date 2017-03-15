@@ -19,3 +19,5 @@
 * `redis-server start`
 * `bundle exec sidekiq`
 * `rails server`
+
+[Resources](resources.md)
