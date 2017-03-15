@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :playlists
   resources :users
 
-  get '/auth/spotify/callback', to: 'users#spotify'
+  get '/auth/spotify/callback', to: 'users#spotify_callback'
+  get '/auth/spotify/login', to: 'users#spotify_auth'
   post 'authenticate', to: 'authentication#authenticate'
 
   mount Sidekiq::Web => '/sidekiq'

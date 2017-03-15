@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  before_create do
+    self.auth_token = SecureRandom.hex
+  end
+
   def spotify_user
     @_spotify_user ||= RSpotify::User.new(spotify_hash)
   end
