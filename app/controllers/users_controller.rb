@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_request, only: [:create, :spotify_callback]
   before_action :set_user, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_request, only: [:create]
 
   # https://accounts.spotify.com/authorize?client_id=5c97b616cf644c148bc35b47ffdf2cab&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fspotify%2Fcallback&response_type=code&scope=user-read-email+playlist-modify-public+user-library-read+playlist-read-private+playlist-read-collaborative+user-top-read&state=e9aaeb7c32b97303e465f0f4571a7bbe
 
@@ -66,6 +67,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:email, :password, :auth_token, :spotify_hash)
+      params.require(:user).permit(:email, :password)
     end
 end
