@@ -1,5 +1,6 @@
 class SpotifyWorker
   include Sidekiq::Worker
+  sidekiq_options :retry => false
 
   def perform(user_id)
     user = User.find(user_id)
@@ -16,10 +17,14 @@ class SpotifyWorker
     # ex. Discover Weekly by Spotify 
     RSpotify::authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_SECRET"])
 
+    user_playlists = user.playlists
+
     playlists.each do |spotify_playlist|
       p = Playlist.get_playlist(spotify_playlist)
 
-      user.playlists << p
+      if !user_playlists.include?(p)
+        user.playlists << p
+      end
 
       if p.up_to_date?(spotify_playlist) == false
         p.add_version(spotify_playlist)
