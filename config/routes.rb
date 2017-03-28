@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   get '/auth/spotify/callback', to: 'users#spotify_callback'
   get '/auth/spotify/login', to: 'users#spotify_auth'
-  post 'authenticate', to: 'authentication#authenticate'
+  post '/authenticate', to: 'authentication#authenticate'
+
+  put '/spotify/process', to: 'spotify#update'
 
   mount Sidekiq::Web => '/sidekiq'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
