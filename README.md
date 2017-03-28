@@ -16,7 +16,7 @@
  
 * `bundle install `
 * `rails db:create && rails db:migrate` 
-* `redis-server start`
+* `redis-server`
 * `bundle exec sidekiq`
 * `rails server`
 
