@@ -20,4 +20,16 @@
 * `bundle exec sidekiq`
 * `rails server`
 
+## Flow
+
+* Create user
+	* `POST` `user[email]` and `user[password]` to `/users`
+	* Returns `JWT`
+
+* Authenticate
+	* Add `Authorization` header with the `JWT` as the value
+
+* Connect Spotify
+	* `GET /user` returns json for the user which includes the Spotify auth url 
+
 [Resources](resources.md)

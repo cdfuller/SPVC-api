@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :playlists
   resources :users
 
+  get '/user', to: 'users#current'
+
   get '/auth/spotify/callback', to: 'users#spotify_callback'
   get '/auth/spotify/login', to: 'users#spotify_auth'
   post '/authenticate', to: 'authentication#authenticate'

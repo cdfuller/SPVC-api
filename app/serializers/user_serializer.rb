@@ -11,6 +11,5 @@ class UserSerializer < ActiveModel::Serializer
     scope = 'user-read-email playlist-modify-public user-library-read playlist-read-private playlist-read-collaborative user-top-read'.tr(' ', '+')
     state = object.auth_token
     auth_uri = "https://accounts.spotify.com/authorize?client_id=#{client_id}&redirect_uri=#{callback_url}&response_type=code&scope=#{scope}&state=#{state}"
-    auth_uri
   end
 end
